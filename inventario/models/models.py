@@ -6,6 +6,22 @@ from sqlalchemy import Column, Integer, DateTime, String, ForeignKey, Boolean
 Base = declarative_base()
 
 
+class Commit(Base):
+    __tablename__ = "commit"
+    __table_args__ = {'sqlite_autoincrement': True}
+    id = Column(Integer,
+                primary_key=True
+                )
+    author = Column(String(255),
+                   ForeignKey("developer.login"))
+    date = Column(DateTime)
+    repo_id = Column(Integer,
+                     ForeignKey("repository.id")
+                     )
+    html_url = Column(String(500))
+
+
+
 class Repo(Base):
     __tablename__ = "repository"
     __table_args__ = {'sqlite_autoincrement': True}
@@ -16,8 +32,9 @@ class Repo(Base):
     create_date = Column(DateTime)
     repo_test = Column(Boolean)
     ambiente = Column(String(50))  # fury melicloud pci ,etc
-    visibility = Column(String(50))
+    private = Column(Boolean)
     stack = Column(String(50))  # Un tag ejemplo grails
+    observation = Column(String(255)) #Comentario de websec sobre el repo.
 
 
 class Dev(Base):
