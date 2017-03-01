@@ -3,7 +3,7 @@ import logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
 
-fh = logging.FileHandler('leakmonitor.log')
+fh = logging.FileHandler('inventary.log')
 fh.setLevel(logging.DEBUG)
 
 ch = logging.StreamHandler()
