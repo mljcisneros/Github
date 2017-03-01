@@ -12,7 +12,7 @@ import traceback
 
 
 
-g = Github('mljcisneros', '1b005490c2faea6eaeaa151b21e51548ad0cef98')
+
 
 org = g.get_organization('melitest')
 
